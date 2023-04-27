@@ -245,8 +245,11 @@
 				video.classList.toggle("video-active");
                 title.classList.toggle("fontsize-active");
 				video.play()
+                
+                $(audio).animate({volume: 1}, 1000);
 				setTimeout(() => {
-					audio.play();  
+				    audio.play();  
+                    audio.volume(0.8);
 				}, 1000);
 			});
 			audioButton.addEventListener('click', function() {
@@ -263,6 +266,9 @@
 					audioButton.classList.remove("innerShadow");
 				}, 250);
 			});
+
+            
+
 		});
 	</script>
 </body>
