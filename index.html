@@ -4,6 +4,7 @@
 	<title>AI-LOFI</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<style>
+         @import url('https://fonts.googleapis.com/css2?family=Expletus+Sans&display=swap%27');
 		body {
 			margin: 0;
 			padding: 0;
@@ -21,6 +22,14 @@
 			transition: all 3s ease;
 			
 		}
+        .aifont{
+            font-family: 'Expletus Sans', cursive;
+            transition: all 2s ease;
+        }
+        .fontsize-active{
+            font-size: 3em !important;
+            margin-bottom: 20px !important;
+        }
 		.video-active{
 			filter: blur(0)!important;
 			
@@ -95,7 +104,7 @@
 		}
 		
 		.overlay-active{
-			padding-top: 70vh;
+			padding-top: 80vh;
 			padding-bottom: 0px;
 		}
 		.button-active{
@@ -145,6 +154,7 @@
 		.innerShadow{
 			box-shadow: inset 0 0 5px #000000;
 		}
+        
 		@keyframes audioIcon-transition {
 			0% {
 			background-image: url('audio/volume1.png');
@@ -187,7 +197,7 @@
 			background-image: url('audio/volume1.png');
 			}
 		}
-
+       
 	</style>
 </head>
 <body>
@@ -204,10 +214,10 @@
 	</div>
 	<div class="container">
 		<div class="overlay">
-			<h1>COMPP</h1>
-			<h4 style="margin-top: 0px;">Manuel Ineichen | Hannes Salzmann</h4>
-			<p>... mask or whatever<br>that is responsive and could be cross-browser compatible back to IE9</p>
-			<button id="go-button">Let's hear it</button>
+			<h1 id="title" class="aifont" style="font-size: 4em;margin-bottom: 35px;">AI-LoFi</h1>
+			<h4 class="aifont" style="margin-top: 0px;margin-bottom: 0px;">Manuel Ineichen | Hannes Salzmann</h4>
+			<p class="aifont" style="margin-top: 5px;">This is an AI-generated hommage to the musical genre of Lofi.</p>
+			<button class="aifont" id="go-button" style="margin-top: 35px;">Let's hear it</button>
 		</div>
 	</div>
 	<div class="fixed-audio" id="audioIsland">
@@ -222,6 +232,7 @@
 		const audioIcon = document.getElementById("audioIcon");
 		const audioButton = document.getElementById("audioIsland");
 		const audio = document.getElementById("webAudio");
+        const title = document.getElementById("title");
 		let audioMute = false;
 
 		$(document).ready(function(){
@@ -232,6 +243,7 @@
 				document.getElementById("go-button").classList.toggle("button-active");
 				document.getElementById("go-button").disabled = true;
 				video.classList.toggle("video-active");
+                title.classList.toggle("fontsize-active");
 				video.play()
 				setTimeout(() => {
 					audio.play();  
